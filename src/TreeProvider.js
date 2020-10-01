@@ -45,6 +45,7 @@ export default class TreeProvider extends Component {
     const providerValue = {
       data: this.state.data,
       addItem: this.addItem,
+      removeItem: this.removeItem,
       moveUp: this.moveUp,
       moveDown: this.moveDown,
       addSublist: this.addSublist,
