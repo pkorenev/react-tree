@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ListItem from './ListItem'
-import { getListItems } from './reducers'
+import { getListItemsByParentId } from './selectors'
 import TreeContext from './TreeContext'
 
 export default class List extends Component {
@@ -13,7 +13,7 @@ export default class List extends Component {
 
   renderListItems = () => {
     const { data } = this.context
-    const listItems = getListItems(data, this.props.parentId)
+    const listItems = getListItemsByParentId(data, this.props.parentId)
 
     if (!listItems) return []
 

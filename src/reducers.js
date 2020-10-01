@@ -126,16 +126,11 @@ const getNextItemIndexByItemIndex = (data, itemIndex) => {
   return -1
 }
 
-const getListItems = (data, parentId) => {
-  return data.filter(item => item.parentId === parentId)
-}
-
 export {
   addItem,
   removeItem,
   moveUp,
   moveDown,
   addSublist,
-  removeSublist,
-  getListItems
+  removeSublist
 }
