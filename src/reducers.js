@@ -98,7 +98,6 @@ const removeSublist = (data, listItemId) => {
 
 const getPrevItemIndexByItemIndex = (data, itemIndex) => {
   const paramItem = data[itemIndex]
-  let prevItemIndex = 0
 
   const allPrevItems = data.slice(0, itemIndex)
   for(let i = itemIndex - 1; i >= 0; i--) {
@@ -113,7 +112,6 @@ const getPrevItemIndexByItemIndex = (data, itemIndex) => {
 
 const getNextItemIndexByItemIndex = (data, itemIndex) => {
   const paramItem = data[itemIndex]
-  let nextItemIndex = 0
 
   const allNextItems = data.slice(itemIndex + 1)
   for(let i = 0; i < allNextItems.length; i++) {
