@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react'
 import List from './List'
+import TreeContext from './TreeContext'
 
 export default class ListItem extends PureComponent {
   render() {
-    const {
-      id, name, listItems, canMoveUp, canMoveDown, hasSublist, removeItem,
-      moveUp, moveDown, addSublist, removeSublist
-    } = this.props
+    const { removeItem, moveUp, moveDown, addSublist, removeSublist } = this.context
+
+    const { id, name, canMoveUp, canMoveDown, hasSublist } = this.props
 
     return (
       <li>
@@ -23,17 +23,12 @@ export default class ListItem extends PureComponent {
         <button onClick={() => removeItem(id)}>Remove</button>
         { hasSublist &&
           <List
-            data={this.props.data}
             parentId={id}
-            addItem={this.props.addItem}
-            removeItem={removeItem}
-            moveUp={moveUp}
-            moveDown={moveDown}
-            addSublist={addSublist}
-            removeSublist={removeSublist}
           />
         }
       </li>
     );
   }
 }
+
+ListItem.contextType = TreeContext

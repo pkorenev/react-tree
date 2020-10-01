@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import RootList from './RootList';
+import List from './List';
+import TreeProvider from './TreeProvider';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RootList />
+    <TreeProvider>
+      <List />
+    </TreeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

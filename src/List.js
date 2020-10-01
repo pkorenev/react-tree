@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ListItem from './ListItem'
 import { getListItems } from './reducers'
+import TreeContext from './TreeContext'
 
 export default class List extends Component {
   constructor(props) {
@@ -11,26 +12,19 @@ export default class List extends Component {
   }
 
   renderListItems = () => {
-    const { addItem, removeItem, moveUp, moveDown, addSublist, removeSublist } = this.props
-    const listItems = getListItems(this.props.data, this.props.parentId)
+    const { data } = this.context
+    const listItems = getListItems(data, this.props.parentId)
 
     if (!listItems) return []
 
     return listItems.map( (item, itemIndex) => (
         <ListItem
-          data={this.props.data}
           key={item.id}
           id={item.id}
           name={item.name}
-          addItem={addItem}
           hasSublist={item.hasSublist}
           canMoveUp={itemIndex > 0}
           canMoveDown={itemIndex < listItems.length - 1}
-          removeItem={removeItem}
-          moveUp={moveUp}
-          moveDown={moveDown}
-          addSublist={addSublist}
-          removeSublist={removeSublist}
         />
       )
     )
@@ -45,8 +39,7 @@ export default class List extends Component {
   }
 
   addItem = () => {
-    const { addItem, parentId } = this.props
-    addItem(parentId, this.state.newListItemName);
+    this.context.addItem(this.props.parentId, this.state.newListItemName);
     this.setState({newListItemName: ''})
   }
 
@@ -73,3 +66,5 @@ export default class List extends Component {
     );
   }
 }
+
+List.contextType = TreeContext
