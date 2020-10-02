@@ -1,5 +1,6 @@
 {
   "homepage": "http://pkorenev.github.io/react-tree",
+  "description": "Tree constructor on react. See demo at http://pkorenev.github.io/react-tree",
   "name": "react-tree",
   "version": "0.1.0",
   "private": true,
