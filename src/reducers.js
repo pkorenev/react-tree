@@ -12,7 +12,7 @@ const arrayIndexOf = (array, fn) => {
   return -1
 }
 
-let idCounter = 10
+let idCounter = 1
 
 const addItem = (data, parentId, name) => {
   return data.concat({id: idCounter++, name, parentId})
